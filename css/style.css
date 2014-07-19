@@ -1,0 +1,28 @@
+body {
+    padding: 0 10px;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 16px;
+}
+
+div{
+    margin: 10px 0;
+}
+
+input {
+    width: 300px;
+}
+
+input[type="text"]{
+    padding: 4px 10px;
+}
+
+input[type="button"]{
+    width: 324px;
+    margin: 0;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+input[type="range"]{
+    width: 280px;
+}
