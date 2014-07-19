@@ -54,6 +54,10 @@ div#settingsHolder {
     display: none;
 }
 
+div#settingsHolder.active {
+    display: block;
+}
+
 div#settingsHolder input[type="checkbox"] {
     float: left;
     width: 25px;

@@ -12,7 +12,23 @@ PasswordGenerator.config = {
     submitButtonId:            'submit',
     settingsButtonId:          'settingsButton',
     settingsHolderId:          'settingsHolder',
-    settingsButtonActiveClass: 'active'
+    settingsButtonActiveClass: 'active',
+    settingButtons:            {
+        involveNumbersInputId:      'settingsInvolveNumbers',
+        involveCzechCharsInputId:   'settingsInvolveCzechChars',
+        involveSpecialCharsInputId: 'settingsInvolveSpecialChars'
+    }
+};
+
+/**
+ * Settings for output password
+ * @type {{involveNumbers: boolean, involveCzechChars: boolean, involveSpecialChars: boolean, passwordLength: number}}
+ */
+PasswordGenerator.passwordSettings = {
+    involveNumbers:      true,
+    involveCzechChars:   true,
+    involveSpecialChars: true,
+    passwordLength:      18
 };
 
 /**
@@ -61,8 +77,21 @@ PasswordGenerator.generatePassword = function (length, useNumbers, useCzechChars
 PasswordGenerator.submitButtonClickListener = function () {
     var passwordInput = document.getElementById(PasswordGenerator.config.passwordInputId);
     var lengthInput = document.getElementById(PasswordGenerator.config.lengthInputId);
+    var involveNumbersInput = document.getElementById(PasswordGenerator.config.settingButtons.involveNumbersInputId);
+    var involveCzechInput = document.getElementById(PasswordGenerator.config.settingButtons.involveCzechCharsInputId);
+    var involveSpecialInput = document.getElementById(PasswordGenerator.config.settingButtons.involveSpecialCharsInputId);
 
-    passwordInput.value = PasswordGenerator.generatePassword(lengthInput.value, true, true, true, true);
+    PasswordGenerator.passwordSettings.passwordLength = lengthInput.value;
+    PasswordGenerator.passwordSettings.involveNumbers = involveNumbersInput.checked;
+    PasswordGenerator.passwordSettings.involveCzechChars = involveCzechInput.checked;
+    PasswordGenerator.passwordSettings.involveSpecialChars = involveSpecialInput.checked;
+
+    passwordInput.value = PasswordGenerator.generatePassword(
+        PasswordGenerator.passwordSettings.passwordLength,
+        PasswordGenerator.passwordSettings.involveNumbers,
+        PasswordGenerator.passwordSettings.involveCzechChars,
+        PasswordGenerator.passwordSettings.involveSpecialChars
+    );
 };
 
 /**
