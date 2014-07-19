@@ -1,5 +1,13 @@
 "use strict";
 
+/**
+ * Password generator popup script
+ *
+ * @author Michal Tichý - ajda2 [https://github.com/ajda2]
+ * @package Password generator
+ * @copyright Michal Tichý - ajda2 [https://github.com/ajda2]
+ */
+
 var PasswordGenerator = PasswordGenerator || {};
 
 /**
