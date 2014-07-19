@@ -4,7 +4,7 @@ body {
     font-size: 16px;
 }
 
-div{
+div {
     margin: 10px 0;
 }
 
@@ -12,17 +12,49 @@ input {
     width: 300px;
 }
 
-input[type="text"]{
+input[type="button"],
+input[type="range"],
+input[type="checkbox"],
+label,
+div#settingsButton {
+    cursor: pointer;
+}
+
+input[type="text"] {
     padding: 4px 10px;
 }
 
-input[type="button"]{
+input[type="button"] {
     width: 324px;
     margin: 0;
-    cursor: pointer;
     padding: 5px 0;
 }
 
-input[type="range"]{
+input[type="range"] {
     width: 280px;
+}
+
+div#settingsButton {
+    padding: 0 0 0 20px;
+    margin: 0 0 15px 0;
+    background: url("./img/listArrow.png") 0 50% no-repeat;
+    transition: color 0.6s ease;
+    -webkit-transition: color 0.6s ease;
+}
+
+div#settingsButton:hover {
+    color: #0353b4;
+}
+
+div#settingsButton.active {
+    background-image: url("./img/listArrowDown.png");
+}
+
+div#settingsHolder {
+    display: none;
+}
+
+div#settingsHolder input[type="checkbox"] {
+    float: left;
+    width: 25px;
 }
