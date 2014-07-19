@@ -32,6 +32,13 @@ input[type="button"] {
 
 input[type="range"] {
     width: 280px;
+    margin: 0;
+}
+
+span#lengthValue {
+    width: 30px;
+    float: left;
+    height: 25px;
 }
 
 div#settingsButton {

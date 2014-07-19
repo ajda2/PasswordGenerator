@@ -20,6 +20,7 @@ PasswordGenerator.config = {
     submitButtonId:            'submit',
     settingsButtonId:          'settingsButton',
     settingsHolderId:          'settingsHolder',
+    lengthValueOutId:          'lengthValue',
     settingsButtonActiveClass: 'active',
     settingButtons:            {
         involveNumbersInputId:      'settingsInvolveNumbers',
@@ -48,6 +49,13 @@ PasswordGenerator.passwordSources = {
     numbers:      '0123456789',
     czechChars:   'ěščřžýáíéů',
     specialChars: '+@#$%^&*()-_=[{]};:|,<.>/?~'
+};
+
+/**
+ * Load stored configuration
+ */
+PasswordGenerator.loadSettingsFromStorage = function () {
+    // TODO: Implement
 };
 
 /**
@@ -164,13 +172,31 @@ PasswordGenerator.removeClass = function (el, className) {
  * DOM loaded
  */
 document.addEventListener('DOMContentLoaded', function () {
+    // Load configuration from Storage
+    PasswordGenerator.loadSettingsFromStorage();
+
     var passwordInput = document.getElementById(PasswordGenerator.config.passwordInputId);
     var lengthInput = document.getElementById(PasswordGenerator.config.lengthInputId);
     var submitButton = document.getElementById(PasswordGenerator.config.submitButtonId);
+    var lengthOutput = document.getElementById(PasswordGenerator.config.lengthValueOutId);
 
-    passwordInput.value = PasswordGenerator.generatePassword(lengthInput.value, true, true, true, true);
+    // Set values from config into GUI
+    var involveNumbers = document.getElementById(PasswordGenerator.config.settingButtons.involveNumbersInputId);
+    lengthOutput.innerHTML = PasswordGenerator.passwordSettings.passwordLength;
+
+    // generate password directly
+    passwordInput.value = PasswordGenerator.generatePassword(
+        PasswordGenerator.passwordSettings.passwordLength,
+        PasswordGenerator.passwordSettings.involveNumbers,
+        PasswordGenerator.passwordSettings.involveCzechChars,
+        PasswordGenerator.passwordSettings.involveSpecialChars
+    );
+
     submitButton.addEventListener('click', PasswordGenerator.submitButtonClickListener);
     passwordInput.addEventListener('click', PasswordGenerator.passwordInputFocus);
+    lengthInput.addEventListener('input', function () {
+        lengthOutput.innerHTML = this.value;
+    });
 
     document.getElementById(PasswordGenerator.config.settingsButtonId).addEventListener('click', PasswordGenerator.settingsButtonListener);
 });
