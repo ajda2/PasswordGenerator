@@ -2,10 +2,10 @@
     "manifest_version": 2,
     "name":             "__MSG_appName__",
     "short_name":       "__MSG_shortName__",
-    "version":          "0.2.1",
+    "version":          "0.2.2",
     "default_locale":   "cs",
     "description":      "__MSG_appDesc__",
-    "author":           "ichal Tichý [ajda2]",
+    "author":           "Michal Tichý [https://github.com/ajda2]",
     "offline_enabled":  true,
     "icons":            {
         "128": "css/img/iconLock_128.png",
