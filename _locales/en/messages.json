@@ -1,0 +1,14 @@
+{
+    "appName":   {
+        "message": "Password generator"
+    },
+    "shortName": {
+        "message": "Password generator"
+    },
+    "appDesc":   {
+        "message": "Generate save password directly from your browser."
+    },
+    "iconTitle": {
+        "message": "Generate password"
+    }
+}

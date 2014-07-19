@@ -1,0 +1,17 @@
+{
+    "appName":   {
+        "message":     "Generátor hesla",
+        "description": "The title of the application, displayed in the web store."
+    },
+    "shortName": {
+        "message": "Generátor hesla"
+    },
+    "appDesc":   {
+        "message":     "Generujte bezpečná hesla rychle přímo z prohlížeče.",
+        "description": "The description of the application, displayed in the web store."
+    },
+    "iconTitle": {
+        "message":     "Vygenerovat heslo",
+        "description": "The description of the application, displayed in the web store."
+    }
+}
